@@ -9,7 +9,7 @@ public class Principal {
         for(int i = 0; i < TAMANHOS.length; i++) {
             int tamanho = TAMANHOS[i];
             
-            System.out.println(">>> TESTANDO COM " + tamanho + " ELEMENTOS <<<");
+            System.out.println(" TESTANDO COM " + tamanho + " ELEMENTOS ");
             System.out.println();
             
             testarOrdemOrdenada(tamanho);
@@ -139,7 +139,7 @@ public class Principal {
     }
     
     private static void testarOrdenacao(int tamanho) {
-        System.out.println(">>> TESTANDO ORDENACAO COM " + tamanho + " ELEMENTOS <<<");
+        System.out.println(" TESTANDO ORDENACAO COM " + tamanho + " ELEMENTOS ");
         System.out.println();
         
         int[] dadosOrdenados = GeradorDados.gerarOrdenado(tamanho);
