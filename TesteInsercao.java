@@ -5,7 +5,7 @@ public class TesteInsercao {
         System.out.println("TESTE DE INSERCAO");
         System.out.println();
         
-        int tamanho = 100;  
+        int tamanho = 1000;  
         
         System.out.println(">>> Tamanho: " + tamanho + " elementos <<<");
         System.out.println();
