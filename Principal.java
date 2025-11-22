@@ -52,7 +52,7 @@ public class Principal {
     private static void testarEstrutura(String tipoEstrutura, int tamanho, String ordem, int[] dados) {
         ResultadoTeste resultado = new ResultadoTeste(tipoEstrutura, tamanho, ordem);
         
-        int[] temposInsercao = new int[NUMERO_EXECUCOES];
+        double[] temposInsercao = new double[NUMERO_EXECUCOES];
         
         for(int i = 0; i < NUMERO_EXECUCOES; i++) {
             if(tipoEstrutura.equals("Vetor")) {
@@ -115,7 +115,7 @@ public class Principal {
     }
     
     private static double medirBuscaVetorMedia(Vetor vetor, int valor, boolean usarBinaria) {
-        int[] tempos = new int[NUMERO_EXECUCOES];
+        double[] tempos = new double[NUMERO_EXECUCOES];
         for(int i = 0; i < NUMERO_EXECUCOES; i++) {
             tempos[i] = MedidorTempo.medirBuscaVetor(vetor, valor, usarBinaria);
         }
@@ -123,7 +123,7 @@ public class Principal {
     }
     
     private static double medirBuscaArvoreBinariaMedia(ArvoreBinaria arvore, int valor) {
-        int[] tempos = new int[NUMERO_EXECUCOES];
+        double[] tempos = new double[NUMERO_EXECUCOES];
         for(int i = 0; i < NUMERO_EXECUCOES; i++) {
             tempos[i] = MedidorTempo.medirBuscaArvoreBinaria(arvore, valor);
         }
@@ -131,7 +131,7 @@ public class Principal {
     }
     
     private static double medirBuscaArvoreAVLMedia(ArvoreAVL arvore, int valor) {
-        int[] tempos = new int[NUMERO_EXECUCOES];
+        double[] tempos = new double[NUMERO_EXECUCOES];
         for(int i = 0; i < NUMERO_EXECUCOES; i++) {
             tempos[i] = MedidorTempo.medirBuscaArvoreAVL(arvore, valor);
         }
@@ -139,7 +139,7 @@ public class Principal {
     }
     
     private static void testarOrdenacao(int tamanho) {
-        System.out.println(" TESTANDO ORDENACAO COM " + tamanho + " ELEMENTOS ");
+        System.out.println(">>> TESTANDO ORDENACAO COM " + tamanho + " ELEMENTOS <<<");
         System.out.println();
         
         int[] dadosOrdenados = GeradorDados.gerarOrdenado(tamanho);
@@ -160,7 +160,7 @@ public class Principal {
     }
     
     private static void testarAlgoritmoOrdenacao(String algoritmo, int tamanho, String ordem, int[] dados) {
-        int[] tempos = new int[NUMERO_EXECUCOES];
+        double[] tempos = new double[NUMERO_EXECUCOES];
         
         for(int i = 0; i < NUMERO_EXECUCOES; i++) {
             if(algoritmo.equals("BubbleSort")) {
