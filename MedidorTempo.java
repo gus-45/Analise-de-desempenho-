@@ -1,43 +1,43 @@
 public class MedidorTempo {
     
-    public static int medirInsercaoVetor(int[] dados) {
+    public static double medirInsercaoVetor(int[] dados) {
         Vetor vetor = new Vetor(dados.length);
-        int inicio = (int)System.currentTimeMillis();
+        double inicio = System.nanoTime();
         
         for(int i = 0; i < dados.length; i++) {
             vetor.inserir(dados[i]);
         }
         
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static int medirInsercaoArvoreBinaria(int[] dados) {
+    public static double medirInsercaoArvoreBinaria(int[] dados) {
         ArvoreBinaria arvore = new ArvoreBinaria();
-        int inicio = (int)System.currentTimeMillis();
+        double inicio = System.nanoTime();
         
         for(int i = 0; i < dados.length; i++) {
             arvore.inserir(dados[i]);
         }
         
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static int medirInsercaoArvoreAVL(int[] dados) {
+    public static double medirInsercaoArvoreAVL(int[] dados) {
         ArvoreAVL arvore = new ArvoreAVL();
-        int inicio = (int)System.currentTimeMillis();
+        double inicio = System.nanoTime();
         
         for(int i = 0; i < dados.length; i++) {
             arvore.inserir(dados[i]);
         }
         
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static int medirBuscaVetor(Vetor vetor, int valor, boolean usarBinaria) {
-        int inicio = (int)System.currentTimeMillis();
+    public static double medirBuscaVetor(Vetor vetor, int valor, boolean usarBinaria) {
+        double inicio = System.nanoTime();
         
         if(usarBinaria) {
             vetor.buscaBinaria(valor);
@@ -45,45 +45,45 @@ public class MedidorTempo {
             vetor.buscaSequencial(valor);
         }
         
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static int medirBuscaArvoreBinaria(ArvoreBinaria arvore, int valor) {
-        int inicio = (int)System.currentTimeMillis();
+    public static double medirBuscaArvoreBinaria(ArvoreBinaria arvore, int valor) {
+        double inicio = System.nanoTime();
         arvore.buscar(valor);
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static int medirBuscaArvoreAVL(ArvoreAVL arvore, int valor) {
-        int inicio = (int)System.currentTimeMillis();
+    public static double medirBuscaArvoreAVL(ArvoreAVL arvore, int valor) {
+        double inicio = System.nanoTime();
         arvore.buscar(valor);
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static int medirOrdenacaoBubbleSort(int[] dados) {
+    public static double medirOrdenacaoBubbleSort(int[] dados) {
         int[] copia = GeradorDados.copiarVetor(dados, dados.length);
-        int inicio = (int)System.currentTimeMillis();
+        double inicio = System.nanoTime();
         Ordenacao.bubbleSort(copia, copia.length);
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static int medirOrdenacaoMergeSort(int[] dados) {
+    public static double medirOrdenacaoMergeSort(int[] dados) {
         int[] copia = GeradorDados.copiarVetor(dados, dados.length);
-        int inicio = (int)System.currentTimeMillis();
+        double inicio = System.nanoTime();
         Ordenacao.mergeSort(copia, 0, copia.length - 1);
-        int fim = (int)System.currentTimeMillis();
-        return fim - inicio;
+        double fim = System.nanoTime();
+        return (fim - inicio) / 1000000.0;
     }
     
-    public static double calcularMedia(int[] tempos) {
-        int soma = 0;
+    public static double calcularMedia(double[] tempos) {
+        double soma = 0;
         for(int i = 0; i < tempos.length; i++) {
             soma = soma + tempos[i];
         }
-        return (double)soma / tempos.length;
+        return soma / tempos.length;
     }
 }
