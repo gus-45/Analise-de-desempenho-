@@ -7,10 +7,10 @@ public class TesteBusca {
     
         int tamanho = 100;  
         
-        String estrutura = "Vetor";
+        String estrutura = "ArvoreBinaria";
         
-        System.out.println(">>> Estrutura: " + estrutura);
-        System.out.println(">>> Tamanho: " + tamanho + " elementos <<<");
+        System.out.println(" Estrutura: " + estrutura);
+        System.out.println(" Tamanho: " + tamanho + " elementos ");
         System.out.println();
         
         int[] dados = GeradorDados.gerarAleatorio(tamanho);
