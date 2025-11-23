@@ -7,7 +7,7 @@ public class TesteBusca {
     
         int tamanho = 10000;  
         
-        String estrutura = "Vetor";
+        String estrutura = "ArvoreBinaria";
         
         System.out.println(" Estrutura: " + estrutura);
         System.out.println(" Tamanho: " + tamanho + " elementos ");
