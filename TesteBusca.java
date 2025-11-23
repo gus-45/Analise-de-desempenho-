@@ -5,9 +5,9 @@ public class TesteBusca {
         System.out.println("TESTE DE BUSCA");
         System.out.println();
     
-        int tamanho = 1000;  
+        int tamanho = 10000;  
         
-        String estrutura = "ArvoreAVL";
+        String estrutura = "Vetor";
         
         System.out.println(" Estrutura: " + estrutura);
         System.out.println(" Tamanho: " + tamanho + " elementos ");
