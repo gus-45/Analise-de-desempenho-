@@ -5,7 +5,7 @@ public class TesteOrdenacao {
         System.out.println("TESTE DE ORDENACAO");
         System.out.println();
         
-        int tamanho = 1000;  
+        int tamanho = 10000;  
         
         System.out.println(">>> Tamanho: " + tamanho + " elementos <<<");
         System.out.println();
