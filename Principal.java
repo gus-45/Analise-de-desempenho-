@@ -9,7 +9,7 @@ public class Principal {
         for(int i = 0; i < TAMANHOS.length; i++) {
             int tamanho = TAMANHOS[i];
             
-            System.out.println(" TESTANDO COM " + tamanho + " ELEMENTOS ");
+            System.out.println(">>> TESTANDO COM " + tamanho + " ELEMENTOS <<<");
             System.out.println();
             
             testarOrdemOrdenada(tamanho);
@@ -50,7 +50,9 @@ public class Principal {
     }
     
     private static void testarEstrutura(String tipoEstrutura, int tamanho, String ordem, int[] dados) {
-        ResultadoTeste resultado = new ResultadoTeste(tipoEstrutura, tamanho, ordem);
+        System.out.println("Estrutura: " + tipoEstrutura);
+        System.out.println("Tamanho: " + tamanho);
+        System.out.println("Ordem: " + ordem);
         
         double[] temposInsercao = new double[NUMERO_EXECUCOES];
         
@@ -65,13 +67,12 @@ public class Principal {
         }
         
         double mediaInsercao = MedidorTempo.calcularMedia(temposInsercao);
-        resultado.setTempoInsercao(mediaInsercao);
+        System.out.println("Tempo de Insercao: " + String.format("%.4f", mediaInsercao) + " ms");
         
         int primeiro = dados[0];
         int ultimo = dados[dados.length - 1];
         int meio = dados[dados.length / 2];
         int inexistente = tamanho * 10 + 999;
-        
         int aleatorio = dados[tamanho / 3];
         
         if(tipoEstrutura.equals("Vetor")) {
@@ -80,11 +81,11 @@ public class Principal {
                 vetor.inserir(dados[i]);
             }
             
-            resultado.setTempoBuscaPrimeiro(medirBuscaVetorMedia(vetor, primeiro, false));
-            resultado.setTempoBuscaUltimo(medirBuscaVetorMedia(vetor, ultimo, false));
-            resultado.setTempoBuscaMeio(medirBuscaVetorMedia(vetor, meio, false));
-            resultado.setTempoBuscaAleatorio(medirBuscaVetorMedia(vetor, aleatorio, false));
-            resultado.setTempoBuscaInexistente(medirBuscaVetorMedia(vetor, inexistente, false));
+            System.out.println("Busca Primeiro: " + String.format("%.6f", medirBuscaVetorMedia(vetor, primeiro)) + " ms");
+            System.out.println("Busca Ultimo: " + String.format("%.6f", medirBuscaVetorMedia(vetor, ultimo)) + " ms");
+            System.out.println("Busca Meio: " + String.format("%.6f", medirBuscaVetorMedia(vetor, meio)) + " ms");
+            System.out.println("Busca Aleatoria: " + String.format("%.6f", medirBuscaVetorMedia(vetor, aleatorio)) + " ms");
+            System.out.println("Busca Inexistente: " + String.format("%.6f", medirBuscaVetorMedia(vetor, inexistente)) + " ms");
             
         } else if(tipoEstrutura.equals("ArvoreBinaria")) {
             ArvoreBinaria arvore = new ArvoreBinaria();
@@ -92,11 +93,11 @@ public class Principal {
                 arvore.inserir(dados[i]);
             }
             
-            resultado.setTempoBuscaPrimeiro(medirBuscaArvoreBinariaMedia(arvore, primeiro));
-            resultado.setTempoBuscaUltimo(medirBuscaArvoreBinariaMedia(arvore, ultimo));
-            resultado.setTempoBuscaMeio(medirBuscaArvoreBinariaMedia(arvore, meio));
-            resultado.setTempoBuscaAleatorio(medirBuscaArvoreBinariaMedia(arvore, aleatorio));
-            resultado.setTempoBuscaInexistente(medirBuscaArvoreBinariaMedia(arvore, inexistente));
+            System.out.println("Busca Primeiro: " + String.format("%.6f", medirBuscaArvoreBinariaMedia(arvore, primeiro)) + " ms");
+            System.out.println("Busca Ultimo: " + String.format("%.6f", medirBuscaArvoreBinariaMedia(arvore, ultimo)) + " ms");
+            System.out.println("Busca Meio: " + String.format("%.6f", medirBuscaArvoreBinariaMedia(arvore, meio)) + " ms");
+            System.out.println("Busca Aleatoria: " + String.format("%.6f", medirBuscaArvoreBinariaMedia(arvore, aleatorio)) + " ms");
+            System.out.println("Busca Inexistente: " + String.format("%.6f", medirBuscaArvoreBinariaMedia(arvore, inexistente)) + " ms");
             
         } else if(tipoEstrutura.equals("ArvoreAVL")) {
             ArvoreAVL arvore = new ArvoreAVL();
@@ -104,20 +105,19 @@ public class Principal {
                 arvore.inserir(dados[i]);
             }
             
-            resultado.setTempoBuscaPrimeiro(medirBuscaArvoreAVLMedia(arvore, primeiro));
-            resultado.setTempoBuscaUltimo(medirBuscaArvoreAVLMedia(arvore, ultimo));
-            resultado.setTempoBuscaMeio(medirBuscaArvoreAVLMedia(arvore, meio));
-            resultado.setTempoBuscaAleatorio(medirBuscaArvoreAVLMedia(arvore, aleatorio));
-            resultado.setTempoBuscaInexistente(medirBuscaArvoreAVLMedia(arvore, inexistente));
+            System.out.println("Busca Primeiro: " + String.format("%.6f", medirBuscaArvoreAVLMedia(arvore, primeiro)) + " ms");
+            System.out.println("Busca Ultimo: " + String.format("%.6f", medirBuscaArvoreAVLMedia(arvore, ultimo)) + " ms");
+            System.out.println("Busca Meio: " + String.format("%.6f", medirBuscaArvoreAVLMedia(arvore, meio)) + " ms");
+            System.out.println("Busca Aleatoria: " + String.format("%.6f", medirBuscaArvoreAVLMedia(arvore, aleatorio)) + " ms");
+            System.out.println("Busca Inexistente: " + String.format("%.6f", medirBuscaArvoreAVLMedia(arvore, inexistente)) + " ms");
         }
-        
-        resultado.imprimir();
+        System.out.println();
     }
     
-    private static double medirBuscaVetorMedia(Vetor vetor, int valor, boolean usarBinaria) {
+    private static double medirBuscaVetorMedia(Vetor vetor, int valor) {
         double[] tempos = new double[NUMERO_EXECUCOES];
         for(int i = 0; i < NUMERO_EXECUCOES; i++) {
-            tempos[i] = MedidorTempo.medirBuscaVetor(vetor, valor, usarBinaria);
+            tempos[i] = MedidorTempo.medirBuscaVetor(vetor, valor, false);
         }
         return MedidorTempo.calcularMedia(tempos);
     }
@@ -139,7 +139,7 @@ public class Principal {
     }
     
     private static void testarOrdenacao(int tamanho) {
-        System.out.println(">>> TESTANDO ORDENACAO COM " + tamanho + " ELEMENTOS <<<");
+        System.out.println(" TESTANDO ORDENACAO COM " + tamanho + " ELEMENTOS ");
         System.out.println();
         
         int[] dadosOrdenados = GeradorDados.gerarOrdenado(tamanho);
@@ -171,7 +171,9 @@ public class Principal {
         }
         
         double media = MedidorTempo.calcularMedia(tempos);
-        ResultadoOrdenacao resultado = new ResultadoOrdenacao(algoritmo, tamanho, ordem, media);
-        resultado.imprimir();
+        System.out.println("Algoritmo: " + algoritmo + 
+                         " | Tamanho: " + tamanho + 
+                         " | Ordem: " + ordem + 
+                         " | Tempo: " + String.format("%.4f", media) + " ms");
     }
 }
