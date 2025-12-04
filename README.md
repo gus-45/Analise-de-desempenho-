@@ -15,9 +15,9 @@ analisededesempenho/
 ├── GeradorDados.java
 ├── MedidorTempo.java
 ├── Principal.java
-├── TesteInsercao.java - executar apenas inserção
-├── TesteBusca.java - executar apenas busca
-└── TesteOrdenacao.java - executar apenas ordenação
+├── TesteInsercao.java # executar apenas inserção
+├── TesteBusca.java # executar apenas busca
+└── TesteOrdenacao.java # executar apenas ordenação
 
 ---
 
@@ -97,22 +97,22 @@ java TesteInsercao
 java TesteBusca
 java TesteOrdenacao
 
-## 🎛️ Personalizando os Testes
+🎛️ Personalizando os Testes
 
-### Você pode editar os arquivos de teste (ou ajustar diretamente no Principal.java) para alterar:
+ Você pode editar os arquivos de teste (ou ajustar diretamente no Principal.java) para alterar:
    Quantidade de elementos (tamanho)
    Número de repetições (repeticoes)
    Estrutura de dados usada na busca (estrutura)
 
-### Exemplos de configuração:
+ Exemplos de configuração:
 
-**TesteInsercao.java**
+TesteInsercao.java
    int tamanho = 100;    // altere para 1000 ou 10000
    int repeticoes = 5;   // média sobre X execuções
 
-**TesteBusca.java**
+TesteBusca.java
    int tamanho = 1000;
    String estrutura = "Vetor";  // opções: "Vetor", "ArvoreBinaria", "ArvoreAVL"
 
-**TesteOrdenacao.java**
+TesteOrdenacao.java
    int tamanho = 1000;
