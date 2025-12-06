@@ -9,7 +9,7 @@ public class Principal {
         for(int i = 0; i < TAMANHOS.length; i++) {
             int tamanho = TAMANHOS[i];
             
-            System.out.println(">>> TESTANDO COM " + tamanho + " ELEMENTOS <<<");
+            System.out.println("TESTANDO COM " + tamanho + " ELEMENTOS");
             System.out.println();
             
             testarOrdemOrdenada(tamanho);
